@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ClipboardList, LayoutGrid, List, ShoppingBasket, Table2 } from "lucide-react"
+import { ClipboardList, Clock, LayoutGrid, ShoppingBasket, Table2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -39,9 +39,9 @@ const items: OpsNavItem[] = [
     active: (pathname) => pathname.startsWith("/tables"),
   },
   {
-    href: "/reservations/list",
-    label: "Reservations",
-    Icon: List,
+    href: "/reservations/waitlist",
+    label: "Waitlist",
+    Icon: Clock,
     active: (pathname) => pathname.startsWith("/reservations"),
   },
 ]
