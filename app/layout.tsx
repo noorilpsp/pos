@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' })
 
 export const metadata: Metadata = {
-  title: 'Bella Vista — Floor Plan',
-  description: 'Interactive restaurant floor plan with live table status, heat maps, time scrubbing, and drag-and-drop reservation assignment.',
+  title: 'Bella Vista — Reservations List',
+  description: 'Restaurant reservation command center with filterable, sortable data table, bulk operations, and inline actions.',
 }
 
 export const viewport = {
