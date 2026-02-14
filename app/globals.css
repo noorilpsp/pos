@@ -375,6 +375,30 @@
   50% { border-left-color: hsl(160 84% 39% / 0.3); }
 }
 
+/* ── Calendar View ────────────────────────────────────────────────── */
+@keyframes cal-cell-hover {
+  from { transform: scale(1); box-shadow: none; }
+  to { transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+}
+
+@keyframes cal-slide-left {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.cal-slide-left { animation: cal-slide-left 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes cal-slide-right {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.cal-slide-right { animation: cal-slide-right 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes cal-fade-scale {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.cal-fade-scale { animation: cal-fade-scale 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
 .focus-dim { transition: opacity 100ms ease; }
 .focus-dim-active { opacity: 0.15; }
 .will-change-transform { will-change: transform, opacity; }

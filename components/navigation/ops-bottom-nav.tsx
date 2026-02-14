@@ -39,8 +39,8 @@ const items: OpsNavItem[] = [
     active: (pathname) => pathname.startsWith("/tables"),
   },
   {
-    href: "/reservations",
-    label: "Reservations",
+    href: "/reservations/calendar",
+    label: "Calendar",
     Icon: CalendarCheck,
     active: (pathname) => pathname.startsWith("/reservations"),
   },
