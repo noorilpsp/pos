@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ClipboardList, LayoutGrid, ShoppingBasket, Table2 } from "lucide-react"
+import { CalendarCheck, ClipboardList, LayoutGrid, ShoppingBasket, Table2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -38,6 +38,12 @@ const items: OpsNavItem[] = [
     Icon: Table2,
     active: (pathname) => pathname.startsWith("/tables"),
   },
+  {
+    href: "/reservations",
+    label: "Reservations",
+    Icon: CalendarCheck,
+    active: (pathname) => pathname.startsWith("/reservations"),
+  },
 ]
 
 export function OpsBottomNav() {
@@ -45,7 +51,7 @@ export function OpsBottomNav() {
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-[70] border-t border-cyan-200/35 bg-[linear-gradient(135deg,rgba(2,6,23,0.96),rgba(15,23,42,0.94))] px-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 shadow-[0_-14px_36px_rgba(2,6,23,0.5)] backdrop-blur-xl">
-      <div className="mx-auto grid w-full max-w-[1680px] grid-cols-4 gap-1.5">
+      <div className="mx-auto grid w-full max-w-[1680px] grid-cols-5 gap-1.5">
         {items.map((item) => {
           const isActive = item.active(pathname)
           return (
