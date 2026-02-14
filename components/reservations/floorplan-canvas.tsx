@@ -20,7 +20,6 @@ interface CanvasProps {
   selectedTable: string | null
   whatIfMode: boolean
   onSelectTable: (id: string) => void
-  highlightedSeats: number | null
 }
 
 // Zone boundaries for labels and overlays
@@ -279,9 +278,7 @@ export function FloorplanCanvas({
             })}
 
           {/* Table Nodes */}
-          {tableStates.map((state) => {
-            const isCompatible = highlightedSeats !== null && state.status === "empty" && state.table.seats >= highlightedSeats
-            return (
+          {tableStates.map((state) => (
               <FloorplanTableNode
                 key={state.table.id}
                 state={state}
@@ -291,8 +288,7 @@ export function FloorplanCanvas({
                 whatIfMode={whatIfMode}
                 onSelect={onSelectTable}
               />
-            )
-          })}
+          ))}
         </div>
       </div>
     </div>
