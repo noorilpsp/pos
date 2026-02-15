@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import {
   CalendarDays,
   ChevronLeft,
@@ -122,9 +123,12 @@ export function TopBar({ servicePeriod, onServicePeriodChange }: TopBarProps) {
         <Button
           size="sm"
           className="hidden bg-emerald-600 text-emerald-50 hover:bg-emerald-500 md:flex"
+          asChild
         >
-          <Plus className="mr-1.5 h-4 w-4" />
-          New Reservation
+          <Link href="/reservations/new">
+            <Plus className="mr-1.5 h-4 w-4" />
+            New Reservation
+          </Link>
         </Button>
       </div>
 
@@ -152,8 +156,11 @@ export function TopBar({ servicePeriod, onServicePeriodChange }: TopBarProps) {
         size="icon"
         className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-emerald-600 shadow-lg shadow-emerald-900/40 hover:bg-emerald-500 md:hidden"
         aria-label="New Reservation"
+        asChild
       >
-        <Plus className="h-6 w-6 text-emerald-50" />
+        <Link href="/reservations/new">
+          <Plus className="h-6 w-6 text-emerald-50" />
+        </Link>
       </Button>
     </header>
   )

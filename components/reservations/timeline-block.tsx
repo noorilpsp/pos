@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useCallback } from "react"
+import Link from "next/link"
 import {
   Tooltip,
   TooltipContent,
@@ -185,7 +186,9 @@ export function ReservationBlock({ block, zoom, onClick }: ReservationBlockProps
         <ContextMenuItem className="text-foreground focus:bg-zinc-800 focus:text-foreground">Text Guest</ContextMenuItem>
         <ContextMenuItem className="text-foreground focus:bg-zinc-800 focus:text-foreground">Assign Server</ContextMenuItem>
         <ContextMenuSeparator className="bg-zinc-800" />
-        <ContextMenuItem className="text-foreground focus:bg-zinc-800 focus:text-foreground">Edit Reservation</ContextMenuItem>
+        <ContextMenuItem className="text-foreground focus:bg-zinc-800 focus:text-foreground" asChild>
+          <Link href="/reservations/edit">Edit Reservation</Link>
+        </ContextMenuItem>
         <ContextMenuItem className="text-foreground focus:bg-zinc-800 focus:text-foreground">Move to Waitlist</ContextMenuItem>
         <ContextMenuSeparator className="bg-zinc-800" />
         <ContextMenuItem className="text-rose-400 focus:bg-zinc-800 focus:text-rose-400">Cancel</ContextMenuItem>

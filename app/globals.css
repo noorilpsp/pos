@@ -614,6 +614,44 @@
   box-shadow: 0 1px 0 0 hsl(var(--primary) / 0.1), 0 -1px 0 0 hsl(var(--border) / 0.3);
 }
 
+/* ── Reservation Form ───────────────────────────────────────────── */
+@keyframes form-dropdown-enter-kf {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.form-dropdown-enter { animation: form-dropdown-enter-kf 200ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes form-expand-kf {
+  from { opacity: 0; max-height: 0; transform: translateY(-4px); }
+  to { opacity: 1; max-height: 200px; transform: translateY(0); }
+}
+.form-expand-enter { animation: form-expand-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; overflow: hidden; }
+
+@keyframes form-autofill-kf {
+  0% { background-color: transparent; }
+  30% { background-color: hsl(160 84% 39% / 0.08); }
+  100% { background-color: transparent; }
+}
+.form-autofill-flash { animation: form-autofill-kf 800ms ease-out; }
+
+@keyframes form-warning-kf {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.form-warning-enter { animation: form-warning-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes form-step-slide-left-kf {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.form-step-slide-left { animation: form-step-slide-left-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes form-step-slide-right-kf {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.form-step-slide-right { animation: form-step-slide-right-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
