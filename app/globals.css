@@ -833,6 +833,67 @@
   animation: guest-status-pulse-kf 2s ease-in-out infinite;
 }
 
+/* ── Merge & Split System ───────────────────────────────────────── */
+@keyframes merge-candidate-pulse {
+  0%, 100% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -14; }
+}
+.merge-dash-animate {
+  animation: merge-candidate-pulse 0.8s linear infinite;
+}
+
+@keyframes merge-selection-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.2); }
+  50% { box-shadow: 0 0 12px 3px rgba(34, 211, 238, 0.1); }
+}
+
+.merge-selection-bar {
+  animation: merge-selection-glow 2s ease-in-out infinite;
+}
+
+@keyframes merge-bridge-draw {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+.merge-bridge-anim {
+  stroke-dasharray: 100;
+  animation: merge-bridge-draw 400ms ease-out forwards;
+}
+
+@keyframes merge-confirm-slide {
+  from { opacity: 0; transform: scale(0.95) translateY(4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.merge-confirm-enter {
+  animation: merge-confirm-slide 200ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes split-apart {
+  0% { gap: 0; }
+  100% { gap: 16px; }
+}
+.split-apart-anim {
+  animation: split-apart 200ms ease-out both;
+}
+
+@keyframes merge-suggestion-slide {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.merge-suggestion-stagger {
+  animation: merge-suggestion-slide 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--suggestion-index, 0) * 100ms);
+}
+
+@keyframes merge-history-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.merge-history-stagger {
+  animation: merge-history-fade 200ms ease-out both;
+  animation-delay: calc(var(--history-index, 0) * 50ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -840,5 +901,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse { animation: none !important; }
+  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger { animation: none !important; }
 }
