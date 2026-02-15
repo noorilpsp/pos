@@ -833,6 +833,82 @@
   animation: guest-status-pulse-kf 2s ease-in-out infinite;
 }
 
+/* ── Guest Booking Widget ──────────────────────────────────────── */
+@keyframes booking-slide-right {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.booking-slide-in-right {
+  animation: booking-slide-right 300ms ease-out both;
+}
+
+@keyframes booking-slide-left {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.booking-slide-in-left {
+  animation: booking-slide-left 300ms ease-out both;
+}
+
+@keyframes booking-checkmark-draw-kf {
+  from { stroke-dashoffset: 48; }
+  to { stroke-dashoffset: 0; }
+}
+.booking-checkmark-draw {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: booking-checkmark-draw-kf 600ms cubic-bezier(0.65, 0, 0.45, 1) 300ms forwards;
+}
+
+@keyframes booking-confirm-pop-kf {
+  0% { opacity: 0; transform: scale(0.5); }
+  70% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.booking-confirm-pop {
+  animation: booking-confirm-pop-kf 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes booking-card-slide-up-kf {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.booking-card-slide-up {
+  animation: booking-card-slide-up-kf 300ms ease-out 400ms both;
+}
+
+@keyframes booking-popular-pulse-kf {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.booking-popular-pulse {
+  animation: booking-popular-pulse-kf 1.5s ease-in-out infinite;
+}
+
+@keyframes booking-error-enter-kf {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.booking-error-enter {
+  animation: booking-error-enter-kf 150ms ease-out;
+}
+
+@keyframes booking-warning-enter-kf {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.booking-warning-enter {
+  animation: booking-warning-enter-kf 200ms ease-out;
+}
+
+@keyframes booking-field-enter-kf {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.booking-step-field-enter {
+  animation: booking-field-enter-kf 250ms ease-out;
+}
+
 /* ── Analytics & Reports ───────────────────────────────────────── */
 @keyframes analytics-bar-grow {
   from { transform: scaleY(0); }
@@ -999,5 +1075,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger, .comms-msg-enter, .comms-flow-line, .comms-auto-flash, .settings-field-changed, .settings-save-anim, .settings-impact-enter, .settings-warning-enter, .analytics-bar-enter, .analytics-insight-stagger, .analytics-kpi-enter, .analytics-tab-content { animation: none !important; }
+  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger, .comms-msg-enter, .comms-flow-line, .comms-auto-flash, .settings-field-changed, .settings-save-anim, .settings-impact-enter, .settings-warning-enter, .analytics-bar-enter, .analytics-insight-stagger, .analytics-kpi-enter, .analytics-tab-content, .booking-slide-in-right, .booking-slide-in-left, .booking-checkmark-draw, .booking-confirm-pop, .booking-card-slide-up, .booking-popular-pulse, .booking-error-enter, .booking-warning-enter, .booking-step-field-enter { animation: none !important; }
 }
