@@ -652,6 +652,72 @@
 }
 .form-step-slide-right { animation: form-step-slide-right-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
 
+/* ── Reservation Detail Panel ──────────────────────────────────────── */
+@keyframes detail-slide-right-kf {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.detail-panel-slide-right { animation: detail-slide-right-kf 300ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+
+@keyframes detail-slide-up-kf {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.detail-panel-slide-up { animation: detail-slide-up-kf 250ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+
+@keyframes detail-fade-kf {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.detail-panel-fade { animation: detail-fade-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes detail-backdrop-kf {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.detail-backdrop { animation: detail-backdrop-kf 200ms ease-out both; }
+
+@keyframes detail-section-stagger-kf {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.detail-section-stagger {
+  animation: detail-section-stagger-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.detail-section-stagger:nth-child(1) { animation-delay: 50ms; }
+.detail-section-stagger:nth-child(2) { animation-delay: 100ms; }
+.detail-section-stagger:nth-child(3) { animation-delay: 150ms; }
+.detail-section-stagger:nth-child(4) { animation-delay: 200ms; }
+.detail-section-stagger:nth-child(5) { animation-delay: 250ms; }
+.detail-section-stagger:nth-child(6) { animation-delay: 300ms; }
+
+@keyframes detail-status-pulse-kf {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.detail-status-pulse { animation: detail-status-pulse-kf 2s ease-in-out infinite; }
+
+@keyframes detail-course-fill-kf {
+  from { width: 0; }
+}
+.detail-course-fill { animation: detail-course-fill-kf 800ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes detail-note-expand-kf {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 200px; }
+}
+.detail-note-expand { animation: detail-note-expand-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; overflow: hidden; }
+
+.detail-msg-stagger {
+  animation: detail-section-stagger-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--msg-index, 0) * 80ms);
+}
+
+.detail-history-stagger {
+  animation: detail-section-stagger-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--hist-index, 0) * 60ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -659,5 +725,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core { animation: none !important; }
+  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger { animation: none !important; }
 }
