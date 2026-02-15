@@ -346,6 +346,243 @@
 }
 .animate-shake { animation: shake 200ms ease-in-out; }
 
+/* ── Reservations Dashboard ──────────────────────────────────────── */
+@keyframes res-pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(270 70% 60% / 0.3); }
+  50% { box-shadow: 0 0 0 6px hsl(270 70% 60% / 0); }
+}
+.res-pulse-badge { animation: res-pulse-badge 2s ease-in-out infinite; }
+
+@keyframes res-pulse-bar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.res-pulse-bar { animation: res-pulse-bar 1.5s ease-in-out infinite; }
+
+@keyframes res-now-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.res-now-marker { animation: res-now-pulse 2s ease-in-out infinite; }
+
+.res-arriving-now-border {
+  border-left: 3px solid hsl(160 84% 39%);
+  padding-left: 8px;
+  animation: res-arriving-pulse 2s ease-in-out infinite;
+}
+@keyframes res-arriving-pulse {
+  0%, 100% { border-left-color: hsl(160 84% 39% / 0.8); }
+  50% { border-left-color: hsl(160 84% 39% / 0.3); }
+}
+
+/* ── Calendar View ────────────────────────────────────────────────── */
+@keyframes cal-cell-hover {
+  from { transform: scale(1); box-shadow: none; }
+  to { transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+}
+
+@keyframes cal-slide-left {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.cal-slide-left { animation: cal-slide-left 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes cal-slide-right {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.cal-slide-right { animation: cal-slide-right 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes cal-fade-scale {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.cal-fade-scale { animation: cal-fade-scale 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* ── Timeline View ("The River") ─────────────────────────────────── */
+@keyframes tl-now-glow {
+  0%, 100% { box-shadow: 0 0 8px 2px rgba(34, 211, 238, 0.25); }
+  50% { box-shadow: 0 0 16px 4px rgba(34, 211, 238, 0.4); }
+}
+.tl-now-line > div > div:last-child {
+  animation: tl-now-glow 3s ease-in-out infinite;
+}
+
+@keyframes tl-ghost-breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.6; }
+}
+.tl-ghost-block { animation: tl-ghost-breathe 3s ease-in-out infinite; }
+
+@keyframes tl-pulse-late {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.tl-pulse-late { animation: tl-pulse-late 1.5s ease-in-out infinite; }
+
+@keyframes tl-block-appear {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.tl-block { animation: tl-block-appear 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes tl-conflict-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+.tl-conflict { animation: tl-conflict-shake 300ms ease-in-out; }
+
+/* ── Floor Plan View ─────────────────────────────────────────────── */
+@keyframes fp-table-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  50% { box-shadow: 0 0 12px 3px rgba(34, 197, 94, 0.15); }
+}
+.fp-table-available { animation: fp-table-breathe 3s ease-in-out infinite; }
+
+@keyframes fp-table-seated-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+  50% { box-shadow: 0 0 8px 2px rgba(59, 130, 246, 0.12); }
+}
+.fp-table-seated { animation: fp-table-seated-pulse 4s ease-in-out infinite; }
+
+@keyframes fp-alert-ring {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+.fp-alert-ring { animation: fp-alert-ring 1.8s ease-out infinite; }
+
+@keyframes fp-drop-valid {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+.fp-drop-target { animation: fp-drop-valid 1.2s ease-in-out infinite; }
+
+@keyframes fp-node-enter {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+.fp-node-enter { animation: fp-node-enter 350ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes fp-scrub-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.fp-scrub-now { animation: fp-scrub-glow 2s ease-in-out infinite; }
+
+.fp-zone-label {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.fp-merged-connector {
+  stroke-dasharray: 6 3;
+  stroke-linecap: round;
+}
+
+@keyframes fp-pulse-table-kf {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 0 8px 3px rgba(245, 158, 11, 0.15); }
+}
+.fp-pulse-table { animation: fp-pulse-table-kf 2s ease-in-out infinite; }
+
+@keyframes fp-table-appear-kf {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+.fp-table-appear { animation: fp-table-appear-kf 350ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes fp-drop-accept-kf {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+.fp-drop-accept { animation: fp-drop-accept-kf 1s ease-in-out infinite; }
+
+@keyframes fp-drop-reject-kf {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+.fp-drop-reject { animation: fp-drop-reject-kf 200ms ease-in-out; }
+
+/* ── List View (Operational Command Center) ──────────────────────── */
+@keyframes list-row-enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.list-row-stagger {
+  animation: list-row-enter 200ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--row-index, 0) * 30ms);
+}
+
+@keyframes list-arriving-pulse {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(245, 158, 11, 0.04); }
+}
+.list-arriving-row { animation: list-arriving-pulse 3s ease-in-out infinite; }
+
+@keyframes list-bulk-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.list-bulk-bar { animation: list-bulk-slide-up 200ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes list-cell-flash {
+  0% { box-shadow: inset 0 0 0 1px rgba(16, 185, 129, 0.5); }
+  100% { box-shadow: inset 0 0 0 1px transparent; }
+}
+.list-cell-flash { animation: list-cell-flash 600ms ease-out; }
+
+/* ── Waitlist Intelligence System ────────────────────────────────── */
+@keyframes wl-alert-slide {
+  from { opacity: 0; transform: translateY(-12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.wl-alert-banner { animation: wl-alert-slide 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes wl-alert-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.15); }
+  50% { box-shadow: 0 0 12px 3px rgba(16, 185, 129, 0.08); }
+}
+.wl-alert-banner { animation: wl-alert-slide 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both, wl-alert-glow 3s ease-in-out 0.4s infinite; }
+
+@keyframes wl-card-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.wl-card-stagger {
+  animation: wl-card-enter 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--card-index, 0) * 40ms);
+}
+
+@keyframes wl-match-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.2); }
+  50% { box-shadow: 0 0 8px 2px rgba(16, 185, 129, 0.08); }
+}
+.wl-match-pulse { animation: wl-match-glow 2.5s ease-in-out infinite; }
+
+@keyframes wl-overdue {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.wl-overdue-pulse { animation: wl-overdue 1.5s ease-in-out infinite; }
+
+@keyframes wl-expand {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 500px; }
+}
+.wl-expand-in { animation: wl-expand 300ms cubic-bezier(0.4, 0, 0.2, 1) both; overflow: hidden; }
+
+@keyframes wl-card-exit {
+  from { opacity: 1; transform: translateX(0) scaleX(1); }
+  50% { opacity: 0.5; transform: translateX(20px) scaleX(0.95); }
+  to { opacity: 0; transform: translateX(100px) scaleX(0.8); }
+}
+.wl-card-exit { animation: wl-card-exit 400ms cubic-bezier(0.4, 0, 1, 1) both; }
+
 .focus-dim { transition: opacity 100ms ease; }
 .focus-dim-active { opacity: 0.15; }
 .will-change-transform { will-change: transform, opacity; }
@@ -377,6 +614,225 @@
   box-shadow: 0 1px 0 0 hsl(var(--primary) / 0.1), 0 -1px 0 0 hsl(var(--border) / 0.3);
 }
 
+/* ── Reservation Form ───────────────────────────────────────────── */
+@keyframes form-dropdown-enter-kf {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.form-dropdown-enter { animation: form-dropdown-enter-kf 200ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+@keyframes form-expand-kf {
+  from { opacity: 0; max-height: 0; transform: translateY(-4px); }
+  to { opacity: 1; max-height: 200px; transform: translateY(0); }
+}
+.form-expand-enter { animation: form-expand-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; overflow: hidden; }
+
+@keyframes form-autofill-kf {
+  0% { background-color: transparent; }
+  30% { background-color: hsl(160 84% 39% / 0.08); }
+  100% { background-color: transparent; }
+}
+.form-autofill-flash { animation: form-autofill-kf 800ms ease-out; }
+
+@keyframes form-warning-kf {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.form-warning-enter { animation: form-warning-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes form-step-slide-left-kf {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.form-step-slide-left { animation: form-step-slide-left-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes form-step-slide-right-kf {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.form-step-slide-right { animation: form-step-slide-right-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* ── Reservation Detail Panel ──────────────────────────────────────── */
+@keyframes detail-slide-right-kf {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.detail-panel-slide-right { animation: detail-slide-right-kf 300ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+
+@keyframes detail-slide-up-kf {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.detail-panel-slide-up { animation: detail-slide-up-kf 250ms cubic-bezier(0.32, 0.72, 0, 1) both; }
+
+@keyframes detail-fade-kf {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.detail-panel-fade { animation: detail-fade-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes detail-backdrop-kf {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.detail-backdrop { animation: detail-backdrop-kf 200ms ease-out both; }
+
+@keyframes detail-section-stagger-kf {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.detail-section-stagger {
+  animation: detail-section-stagger-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.detail-section-stagger:nth-child(1) { animation-delay: 50ms; }
+.detail-section-stagger:nth-child(2) { animation-delay: 100ms; }
+.detail-section-stagger:nth-child(3) { animation-delay: 150ms; }
+.detail-section-stagger:nth-child(4) { animation-delay: 200ms; }
+.detail-section-stagger:nth-child(5) { animation-delay: 250ms; }
+.detail-section-stagger:nth-child(6) { animation-delay: 300ms; }
+
+@keyframes detail-status-pulse-kf {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+.detail-status-pulse { animation: detail-status-pulse-kf 2s ease-in-out infinite; }
+
+@keyframes detail-course-fill-kf {
+  from { width: 0; }
+}
+.detail-course-fill { animation: detail-course-fill-kf 800ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+@keyframes detail-note-expand-kf {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 200px; }
+}
+.detail-note-expand { animation: detail-note-expand-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both; overflow: hidden; }
+
+.detail-msg-stagger {
+  animation: detail-section-stagger-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--msg-index, 0) * 80ms);
+}
+
+.detail-history-stagger {
+  animation: detail-section-stagger-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--hist-index, 0) * 60ms);
+}
+
+/* ── Guest CRM ─────────────────────────────────────────────── */
+@keyframes guest-row-enter-kf {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.guest-row-stagger {
+  animation: guest-row-enter-kf 200ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--row-i, 0) * 30ms);
+}
+
+@keyframes guest-profile-enter-kf {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.guest-profile-enter {
+  animation: guest-profile-enter-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes guest-analytics-enter-kf {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.guest-analytics-enter {
+  animation: guest-analytics-enter-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) 100ms both;
+}
+
+@keyframes guest-section-stagger-kf {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.guest-profile-section {
+  animation: guest-section-stagger-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.guest-insight-section {
+  animation: guest-section-stagger-kf 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes guest-tab-content-kf {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.guest-tab-content {
+  animation: guest-tab-content-kf 200ms ease-out both;
+}
+
+@keyframes guest-tag-badge-kf {
+  from { opacity: 0; transform: scale(0.85); }
+  70% { transform: scale(1.04); }
+  to { opacity: 1; transform: scale(1); }
+}
+.guest-tag-badge {
+  animation: guest-tag-badge-kf 200ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.guest-visit-stagger {
+  animation: guest-row-enter-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--visit-i, 0) * 50ms);
+}
+
+.guest-comm-stagger {
+  animation: guest-row-enter-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--comm-i, 0) * 60ms);
+}
+
+.guest-action-card {
+  animation: guest-section-stagger-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--action-i, 0) * 200ms);
+}
+
+@keyframes guest-freq-dot-kf {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+.guest-freq-dot {
+  animation: guest-freq-dot-kf 250ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes guest-bar-kf {
+  from { width: 0; }
+}
+.guest-card-bar, .guest-fav-bar, .guest-score-bar {
+  animation: guest-bar-kf 600ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes guest-spend-draw-kf {
+  from { stroke-dashoffset: 2000; }
+  to { stroke-dashoffset: 0; }
+}
+.guest-spend-line {
+  stroke-dasharray: 2000;
+  animation: guest-spend-draw-kf 600ms ease-out both;
+}
+
+@keyframes guest-note-expand-kf {
+  from { opacity: 0; max-height: 0; }
+  to { opacity: 1; max-height: 300px; }
+}
+.guest-note-expand {
+  animation: guest-note-expand-kf 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  overflow: hidden;
+}
+
+.guest-segment-tab {
+  transition: all 150ms ease;
+}
+
+@keyframes guest-status-pulse-kf {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.guest-status-pulse {
+  animation: guest-status-pulse-kf 2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -384,5 +840,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core { animation: none !important; }
+  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse { animation: none !important; }
 }
