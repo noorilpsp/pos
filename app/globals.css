@@ -833,6 +833,40 @@
   animation: guest-status-pulse-kf 2s ease-in-out infinite;
 }
 
+/* ── Reservation Settings ──────────────────────────────────────── */
+@keyframes settings-field-flash {
+  0% { background-color: rgba(245, 158, 11, 0.12); }
+  100% { background-color: transparent; }
+}
+.settings-field-changed {
+  animation: settings-field-flash 600ms ease-out;
+}
+
+@keyframes settings-save-btn {
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+.settings-save-anim {
+  animation: settings-save-btn 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes settings-impact-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.settings-impact-enter {
+  animation: settings-impact-fade 300ms ease-out both;
+}
+
+@keyframes settings-warning-slide {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.settings-warning-enter {
+  animation: settings-warning-slide 200ms ease-out both;
+}
+
 /* ── Communications System ─────────────────────────────────────── */
 @keyframes comms-msg-slide-in {
   from { opacity: 0; transform: translateY(-8px); }
@@ -929,5 +963,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger, .comms-msg-enter, .comms-flow-line, .comms-auto-flash { animation: none !important; }
+  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger, .comms-msg-enter, .comms-flow-line, .comms-auto-flash, .settings-field-changed, .settings-save-anim, .settings-impact-enter, .settings-warning-enter { animation: none !important; }
 }
