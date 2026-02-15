@@ -6,7 +6,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import { Layers, Zap, Link2, ChevronUp } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
 
@@ -204,27 +203,62 @@ export default function MergeSplitPage() {
           />
         </div>
 
-        {/* Right: Config Panel (hidden on tablet, shown on desktop) */}
-        <div className="hidden w-[380px] shrink-0 border-l border-border/20 xl:block">
-          <ScrollArea className="h-full">
-            <div className="flex flex-col gap-5 p-4">
-              <ActiveMergesPanel
-                merges={activeMerges}
-                onSplit={handleSplit}
-                onViewDetails={handleMergedTableClick}
-              />
-              <Separator className="bg-border/20" />
-              <MergeSuggestionsPanel
-                suggestions={mergeSuggestions}
-                onApplyMerge={handleApplyMerge}
-              />
-              <Separator className="bg-border/20" />
-              <CombinationsPanel
-                combinations={compatibleCombinations}
-                onSelectCombination={handleSelectCombination}
-              />
+        {/* Right: Tabbed Config Panel (hidden on tablet, shown on desktop) */}
+        <div className="hidden w-[380px] shrink-0 border-l border-border/20 xl:flex xl:flex-col">
+          <Tabs defaultValue="active" className="flex h-full flex-col">
+            <div className="shrink-0 border-b border-border/20 px-2 pt-2">
+              <TabsList className="grid w-full grid-cols-3 bg-secondary/30">
+                <TabsTrigger value="active" className="gap-1.5 text-xs">
+                  <Layers className="h-3 w-3" />
+                  Active
+                  {activeMerges.length > 0 && (
+                    <Badge variant="secondary" className="ml-0.5 h-4 min-w-4 rounded-full px-1 text-[9px]">
+                      {activeMerges.length}
+                    </Badge>
+                  )}
+                </TabsTrigger>
+                <TabsTrigger value="suggestions" className="gap-1.5 text-xs">
+                  <Zap className="h-3 w-3" />
+                  Suggest
+                  {mergeSuggestions.length > 0 && (
+                    <Badge variant="secondary" className="ml-0.5 h-4 min-w-4 rounded-full px-1 text-[9px]">
+                      {mergeSuggestions.length}
+                    </Badge>
+                  )}
+                </TabsTrigger>
+                <TabsTrigger value="combos" className="gap-1.5 text-xs">
+                  <Link2 className="h-3 w-3" />
+                  Combos
+                  <Badge variant="secondary" className="ml-0.5 h-4 min-w-4 rounded-full px-1 text-[9px]">
+                    {availableCombos}
+                  </Badge>
+                </TabsTrigger>
+              </TabsList>
             </div>
-          </ScrollArea>
+            <ScrollArea className="min-h-0 flex-1">
+              <div className="p-4">
+                <TabsContent value="active" className="mt-0">
+                  <ActiveMergesPanel
+                    merges={activeMerges}
+                    onSplit={handleSplit}
+                    onViewDetails={handleMergedTableClick}
+                  />
+                </TabsContent>
+                <TabsContent value="suggestions" className="mt-0">
+                  <MergeSuggestionsPanel
+                    suggestions={mergeSuggestions}
+                    onApplyMerge={handleApplyMerge}
+                  />
+                </TabsContent>
+                <TabsContent value="combos" className="mt-0">
+                  <CombinationsPanel
+                    combinations={compatibleCombinations}
+                    onSelectCombination={handleSelectCombination}
+                  />
+                </TabsContent>
+              </div>
+            </ScrollArea>
+          </Tabs>
         </div>
 
         {/* Tablet: Bottom sheet trigger */}
