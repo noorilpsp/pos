@@ -833,6 +833,34 @@
   animation: guest-status-pulse-kf 2s ease-in-out infinite;
 }
 
+/* ── Communications System ─────────────────────────────────────── */
+@keyframes comms-msg-slide-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.comms-msg-enter {
+  animation: comms-msg-slide-in 200ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--msg-index, 0) * 50ms);
+}
+
+@keyframes comms-flow-draw {
+  from { opacity: 0; transform: scaleY(0); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+.comms-flow-line {
+  animation: comms-flow-draw 250ms ease-out both;
+  animation-delay: calc(var(--flow-index, 0) * 80ms);
+  transform-origin: top;
+}
+
+@keyframes comms-auto-flash {
+  0% { background-color: rgba(16, 185, 129, 0.15); }
+  100% { background-color: transparent; }
+}
+.comms-auto-flash {
+  animation: comms-auto-flash 600ms ease-out;
+}
+
 /* ── Merge & Split System ───────────────────────────────────────── */
 @keyframes merge-candidate-pulse {
   0%, 100% { stroke-dashoffset: 0; }
@@ -901,5 +929,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger { animation: none !important; }
+  .animate-pulse-ring, .animate-status-ring, .animate-seat-ready-pulse, .animate-highlight-pulse, .animate-highlight-pulse-urgent, .animate-error-pulse, .animate-table-aura, .animate-add-context-burst, .animate-selected-chip, .animate-charge-blast-fade, .animate-charge-ring, .animate-charge-ring-delayed, .animate-charge-scan, .animate-charge-core, .detail-status-pulse, .detail-course-fill, .detail-section-stagger, .detail-msg-stagger, .detail-history-stagger, .guest-row-stagger, .guest-profile-enter, .guest-analytics-enter, .guest-profile-section, .guest-insight-section, .guest-tab-content, .guest-tag-badge, .guest-visit-stagger, .guest-comm-stagger, .guest-action-card, .guest-card-bar, .guest-fav-bar, .guest-score-bar, .guest-status-pulse, .merge-dash-animate, .merge-selection-bar, .merge-bridge-anim, .merge-confirm-enter, .split-apart-anim, .merge-suggestion-stagger, .merge-history-stagger, .comms-msg-enter, .comms-flow-line, .comms-auto-flash { animation: none !important; }
 }
